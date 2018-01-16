@@ -1,0 +1,30 @@
+{
+  "name": "xtuple/api",
+  "description": "xTuple REST API PHP client",
+  "type": "library",
+  "homepage": "https://github.com/xtuple/php-api",
+  "license": "CPAL-1.0",
+  "authors": [
+    {
+      "name": "Andrey Mikheychik",
+      "email": "andrey@xtuple.com",
+      "role": "Software Engineer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Xtuple\\API\\Client\\": "src/Xtuple/API/Client/"
+    }
+  },
+  "config": {
+    "preferred-install": "source"
+  },
+  "minimum-stability": "alpha",
+  "require": {
+    "php": "^7.1",
+    "xtuple/util": "dev-master"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.5"
+  }
+}
