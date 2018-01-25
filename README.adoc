@@ -21,3 +21,14 @@ phpunit --coverage-html target/coverage/html
 ----
 
 Code coverage report will be available in `target/coverage/html`
+
+== Build
+
+https://www.phing.info[Phing] is used to build project.
+
+[source,bash]
+----
+phing build
+----
+
+Archived project code with the dependencies will be available in `target/build` directory.
