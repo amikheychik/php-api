@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<environment xmlns="https://xtuple.com/schema/php-api.phpunit.environment"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://xtuple.com/schema/php-api.phpunit.environment phpunit.environment.xsd">
+  <xtuple host=""
+          database=""
+          iss=""
+          key=""
+          application=""
+          debug="true"/>
+</environment>

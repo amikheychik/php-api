@@ -1,2 +1,6 @@
 target
 vendor
+
+# PHPUnit local configuration
+phpunit.xml
+tests/phpunit.environment.xml

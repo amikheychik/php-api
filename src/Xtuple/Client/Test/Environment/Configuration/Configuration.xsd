@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema targetNamespace="https://xtuple.com/schema/xtuple.client.test.environment.configuration"
+           xmlns="https://xtuple.com/schema/xtuple.client.test.environment.configuration"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:xtuple="https://xtuple.com/schema/xtuple.client.connection.test.environment.configuration"
+           elementFormDefault="qualified">
+  <xs:complexType name="environment">
+    <xs:all>
+      <xs:element name="xtuple" type="xtuple:connection" minOccurs="0"/>
+    </xs:all>
+  </xs:complexType>
+</xs:schema>

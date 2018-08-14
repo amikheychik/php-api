@@ -13,7 +13,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Xtuple\\API\\Client\\": "src/Xtuple/API/Client/"
+      "Xtuple\\Client\\": "src/Xtuple/Client/"
     }
   },
   "config": {
@@ -22,6 +22,7 @@
   "minimum-stability": "alpha",
   "require": {
     "php": "^7.1",
+    "ext-openssl": "*",
     "xtuple/util": "dev-master"
   },
   "require-dev": {
