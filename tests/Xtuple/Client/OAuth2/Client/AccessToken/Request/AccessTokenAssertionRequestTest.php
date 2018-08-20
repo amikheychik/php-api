@@ -50,6 +50,12 @@ class AccessTokenAssertionRequestTest
       '{"grant_type":"assertion","assertion_type":"assertion","assertion":"eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.e30"}',
       (string) new StringBodyFromBody($request->body())
     );
+    /** @noinspection SpellCheckingInspection */
+    self::assertEquals([
+      'https://example.com/erp/oauth/v2/token',
+      '94cfec5e84c534e5fdb1bc0515b5ed07353bfed9',
+      '63e6c92b9d9c674de42339dd9499b65885ea0124',
+    ], $request->key()->fields());
   }
 
   /**

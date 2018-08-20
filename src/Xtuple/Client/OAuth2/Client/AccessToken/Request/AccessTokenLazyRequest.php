@@ -5,6 +5,8 @@ namespace Xtuple\Client\OAuth2\Client\AccessToken\Request;
 use Xtuple\Client\Connection\Connection;
 use Xtuple\Client\JWT\JWTForConnection;
 use Xtuple\Client\OAuth2\Client\AccessToken\Scope\Scope;
+use Xtuple\Util\Cache\Key\Key;
+use Xtuple\Util\Cache\Key\KeyStruct;
 use Xtuple\Util\Exception\Throwable;
 use Xtuple\Util\HTTP\Request\AbstractLazyRequest;
 use Xtuple\Util\HTTP\Request\Request;
@@ -35,20 +37,44 @@ final class AccessTokenLazyRequest
     return $this->issuedAt;
   }
 
+  public function key(): Key {
+    return new KeyStruct([
+      (string) $this->connection->token(),
+      sha1($this->scope->value()),
+      sha1($this->scope->site()),
+      sha1((string) $this->subject),
+    ]);
+  }
+
   /**
    * @throws Throwable
    * @return Request
    */
   protected function request(): Request {
-    return new AccessTokenAssertionRequest(
-      $this->connection,
-      new JWTForConnection(
+    return $this->token();
+  }
+
+  /** @var array */
+  private $tokens = [];
+
+  /**
+   * @throws Throwable
+   * @return AccessTokenRequest
+   */
+  private function token(): AccessTokenRequest {
+    $key = implode('::', $this->key()->fields());
+    if (!isset($this->tokens[$key])) {
+      $this->tokens[$key] = new AccessTokenAssertionRequest(
         $this->connection,
-        $this->scope,
-        $this->subject,
+        new JWTForConnection(
+          $this->connection,
+          $this->scope,
+          $this->subject,
+          $this->issuedAt
+        ),
         $this->issuedAt
-      ),
-      $this->issuedAt
-    );
+      );
+    }
+    return $this->tokens[$key];
   }
 }
