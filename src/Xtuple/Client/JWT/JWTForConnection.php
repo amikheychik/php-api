@@ -5,7 +5,7 @@ namespace Xtuple\Client\JWT;
 use Xtuple\Client\Connection\Connection;
 use Xtuple\Client\JWT\Claim\Claim\Header\Algorithm\Algorithm;
 use Xtuple\Client\JWT\Claim\Claim\Registered\ExpirationTime\ExpirationTimeFromTimestamp;
-use Xtuple\Client\OAuth2\Client\AccessToken\Scope\Scope;
+use Xtuple\Client\OAuth2\Client\Token\Scope\Scope;
 use Xtuple\Util\Exception\ChainException;
 use Xtuple\Util\JWT\AbstractLazyJWT;
 use Xtuple\Util\JWT\Claim\Claim\Registered\Audience\AudienceStruct;

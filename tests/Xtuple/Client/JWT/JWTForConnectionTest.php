@@ -7,7 +7,7 @@ use Xtuple\Client\Connection\Connection;
 use Xtuple\Client\Connection\Test\PHPUnitConnection;
 use Xtuple\Client\JWT\Claim\Claim\Header\Algorithm\Test\AlgorithmTestCase;
 use Xtuple\Client\JWT\Claim\Claim\Registered\Subject\SubjectForCustomer;
-use Xtuple\Client\OAuth2\Client\AccessToken\Scope\ScopeStruct;
+use Xtuple\Client\OAuth2\Client\Token\Scope\ScopeStruct;
 use Xtuple\Util\Exception\Exception;
 use Xtuple\Util\Exception\Throwable;
 use Xtuple\Util\Type\DateTime\Timestamp\TimestampNow;

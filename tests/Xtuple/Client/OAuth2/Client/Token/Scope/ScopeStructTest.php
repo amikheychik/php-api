@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Xtuple\Client\OAuth2\Client\AccessToken\Scope;
+namespace Xtuple\Client\OAuth2\Client\Token\Scope;
 
 use PHPUnit\Framework\TestCase;
 

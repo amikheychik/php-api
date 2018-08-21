@@ -3,8 +3,8 @@
 namespace Xtuple\Client;
 
 use Xtuple\Client\Connection\Connection;
-use Xtuple\Client\OAuth2\Client\AccessToken\Scope\Scope;
 use Xtuple\Client\OAuth2\Client\ClientForConnection;
+use Xtuple\Client\OAuth2\Client\Token\Scope\Scope;
 use Xtuple\Client\Request\Collection\Map\MapRequest;
 use Xtuple\Client\Request\Request;
 use Xtuple\Client\Result\Collection\Map\MapResult;

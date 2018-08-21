@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Xtuple\Client\OAuth2\Client\AccessToken\Scope;
+namespace Xtuple\Client\OAuth2\Client\Token\Scope;
 
-use Xtuple\Util\OAuth2\Client\AccessToken\Scope\AbstractScope;
-use Xtuple\Util\OAuth2\Client\AccessToken\Scope\ScopeStruct as AccessTokenScopeStruct;
+use Xtuple\Util\OAuth2\Client\Token\Scope\AbstractScope;
+use Xtuple\Util\OAuth2\Client\Token\Scope\ScopeStruct as AccessTokenScopeStruct;
 
 final class ScopeStruct
   extends AbstractScope

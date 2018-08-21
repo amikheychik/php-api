@@ -7,7 +7,7 @@ use Xtuple\Client\Connection\Connection;
 use Xtuple\Client\Connection\Test\Environment\Configuration\Configuration;
 use Xtuple\Client\ERPClient;
 use Xtuple\Client\JWT\Claim\Claim\Registered\Subject\SubjectForCustomer;
-use Xtuple\Client\OAuth2\Client\AccessToken\Scope\ScopeStruct;
+use Xtuple\Client\OAuth2\Client\Token\Scope\ScopeStruct;
 use Xtuple\Util\Cache\Cache\Memory\MemoryCache;
 
 final class EnvironmentStruct

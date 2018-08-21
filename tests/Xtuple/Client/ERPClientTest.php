@@ -3,7 +3,7 @@
 namespace Xtuple\Client;
 
 use Xtuple\Client\JWT\Claim\Claim\Registered\Subject\SubjectForCustomer;
-use Xtuple\Client\OAuth2\Client\AccessToken\Scope\ScopeStruct;
+use Xtuple\Client\OAuth2\Client\Token\Scope\ScopeStruct;
 use Xtuple\Client\Request\Collection\Map\ArrayMapRequest;
 use Xtuple\Client\Request\Request\GETRequest;
 use Xtuple\Client\Request\URL\ResourceURL;
