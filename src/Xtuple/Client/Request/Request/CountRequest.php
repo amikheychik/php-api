@@ -11,10 +11,20 @@ final class CountRequest
   extends AbstractRequest {
   public function __construct(Connection $connection, string $resource, Query $query) {
     /** @noinspection PhpUnhandledExceptionInspection */
-    parent::__construct(new GETRequest(new ResourceURL($connection, $resource, array_merge([
-      'value' => [],
-    ], array_filter($query->value()), [
-      'count' => 1,
-    ]))));
+    parent::__construct(new GETRequest(
+      new ResourceURL(
+        $connection,
+        $resource,
+        array_diff_key(
+          array_merge(array_filter($query->value()), [
+            'count' => 1,
+          ]),
+          [
+            'pageToken' => false,
+            'maxResults' => false,
+          ]
+        )
+      )
+    ));
   }
 }
