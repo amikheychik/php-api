@@ -30,7 +30,8 @@ final class PageResponseFromResponses
    * @param Response $list
    */
   public function __construct(Query $query, Response $count, Response $list) {
-    if ($list->content()->get(['nameSpace'])) {
+    if ($list->content()->get(['nameSpace'])
+      || $list->content()->get(['statusCode'])) {
       $this->content = $list->content()->data();
     }
     else {
