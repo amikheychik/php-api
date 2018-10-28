@@ -25,14 +25,15 @@ final class ResultFromHTTPResult
 
   public function response(): Response {
     try {
+      $status = $this->result->response()->status();
+      if ($status->code() >= 400) {
+        throw new Exception($status->reason(), [], $status->code());
+      }
       $response = new ResponseFromHTTPResponse($this->result->response());
       if ($error = $response->json()->get(['error'])) {
         $error = new ErrorData($error);
         /** @noinspection PhpUnhandledExceptionInspection */
         throw new MultiErrorException([$error], 'ERP response contains an error', [], $error->code());
-      }
-      if ($response->status()->code() >= 400) {
-        throw new Exception($response->status()->reason(), [], $response->status()->code());
       }
       return $response;
     }
