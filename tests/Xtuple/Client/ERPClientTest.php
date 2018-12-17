@@ -61,7 +61,7 @@ class ERPClientTest
       new ConnectionStruct('fail', 'http://localhost', 'missing', new IssuerStruct('issuer'), '/path/to/key'),
       new MemoryCache('tokens'),
       new SubjectForCustomer('GUEST'),
-      new ScopeStruct('erp', 'session')
+      new ScopeStruct('session')
     );
     $client->sendMany(new ArrayMapRequest([
       new GETRequest(

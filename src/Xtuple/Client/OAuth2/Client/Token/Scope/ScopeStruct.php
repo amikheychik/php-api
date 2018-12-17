@@ -11,14 +11,13 @@ final class ScopeStruct
   /** @var string */
   private $site;
 
-  public function __construct(string $database, string $externalId, string $customer = 'GUEST', string $shipTo = '',
-                              string $site = '') {
-    $scope = compact('externalId', 'customer', 'shipTo', 'site');
-    foreach (array_filter($scope) as $key => $value) {
-      $scope[$key] = "{$database}.session.{$key}:{$value}";
+  public function __construct(string $externalId, string $customer = 'GUEST', string $shipTo = '', string $site = '') {
+    $scope = array_filter(compact('externalId', 'customer', 'shipTo', 'site'));
+    foreach ($scope as $key => $value) {
+      $scope[$key] = "{$key}:{$value}";
     }
     parent::__construct(new AccessTokenScopeStruct(
-      implode(' ', array_filter($scope))
+      implode(' ', $scope)
     ));
     $this->site = $site;
   }

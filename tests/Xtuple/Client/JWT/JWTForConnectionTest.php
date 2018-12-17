@@ -20,7 +20,7 @@ class JWTForConnectionTest
    */
   public function testConstructor() {
     $connection = new PHPUnitConnection($this->p12);
-    $scope = new ScopeStruct('erp', '05098435b82fa53ab8dc5a713ca1f43a93c7685c');
+    $scope = new ScopeStruct('05098435b82fa53ab8dc5a713ca1f43a93c7685c');
     $subject = new SubjectForCustomer('GUEST');
     $issuedAt = new TimestampStruct(1534192554);
     $jwt = new JWTForConnection($connection, $scope, $subject, $issuedAt);
@@ -35,8 +35,8 @@ class JWTForConnectionTest
     self::assertEquals(1534196154, $jwt->payload()->get('exp')->value());
     self::assertEquals(
       implode(' ', [
-        'erp.session.externalId:05098435b82fa53ab8dc5a713ca1f43a93c7685c',
-        'erp.session.customer:GUEST',
+        'externalId:05098435b82fa53ab8dc5a713ca1f43a93c7685c',
+        'customer:GUEST',
       ]),
       $jwt->payload()->get('scope')->value()
     );
@@ -46,11 +46,10 @@ class JWTForConnectionTest
       'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.',
       'eyJpc3MiOiJ0ZXN0Iiwic3ViIjoiZ3Vlc3QiLCJhdWQiOiJodHRwczovL2V4YW1wbGUuY29tL2Vyc',
       'C9vYXV0aC92Mi90b2tlbiIsImlhdCI6MTUzNDE5MjU1NCwiZXhwIjoxNTM0MTk2MTU0LCJzY29wZS',
-      'I6ImVycC5zZXNzaW9uLmV4dGVybmFsSWQ6MDUwOTg0MzViODJmYTUzYWI4ZGM1YTcxM2NhMWY0M2E',
-      '5M2M3Njg1YyBlcnAuc2Vzc2lvbi5jdXN0b21lcjpHVUVTVCIsInBybiI6Imd1ZXN0In0.',
-      'rgOHMc2yuCFUCP74EOresj8P_0-I-4CLDNx9bEwuC7DXnQULHxEYqDdhpvbLY-gVbu3hipqB1Ajkv',
-      'm0FMXHghUbXXcNVsiMCnYfeFaBwzDBnYJANvMk8-sGm0kW8Hk8u5Mr59UJ__Kaug-nQKJ-5V-XiCF',
-      'JCRoSmW-ilmt8b6Qk',
+      'I6ImV4dGVybmFsSWQ6MDUwOTg0MzViODJmYTUzYWI4ZGM1YTcxM2NhMWY0M2E5M2M3Njg1YyBjdXN',
+      '0b21lcjpHVUVTVCIsInBybiI6Imd1ZXN0In0.idFMq1raLieLqBpexCEYy3hg0OTMFPHWZOKTfm1a',
+      'xwZiYjU0nmoivOR9PjFPWKxSWCGvx24r50UR7hPY7ob96syV9l_HYC-p_U_b-xR6z10taiTCB3d8d',
+      'U-1IvvsrfaMuz6bEaVu5wzln70ddoOVlPhZFggbiC4eR9pBJbseevI',
     ]), $jwt->encoded());
   }
 
@@ -62,7 +61,7 @@ class JWTForConnectionTest
   public function testPayloadException() {
     $jwt = new JWTForConnection(
       new WrongConnection(),
-      new ScopeStruct('erp', 'session'),
+      new ScopeStruct('session'),
       new SubjectForCustomer('GUEST'),
       new TimestampNow()
     );

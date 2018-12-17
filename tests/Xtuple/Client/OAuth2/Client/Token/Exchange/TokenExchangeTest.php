@@ -23,7 +23,7 @@ class TokenExchangeTest
   public function testExpiredToken() {
     $tokens = new MemoryCache('phpunit');
     $connection = new PHPUnitConnection($this->p12);
-    $scope = new ScopeStruct('erp', 'session');
+    $scope = new ScopeStruct('session');
     $subject = new SubjectForCustomer();
     $now = new TimestampNow();
     $exchange = new TokenExchange(

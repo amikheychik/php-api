@@ -17,11 +17,10 @@ class ClientForConnectionTest
    * @throws \Throwable
    */
   public function testConstructor() {
-    $sessionId = (string) new UUIDv4();
     $oauth2 = new ClientForConnection(
       $this->environment->connection(),
       new MemoryCache('tokens'),
-      new ScopeStruct($this->environment->connection()->database(), $sessionId),
+      new ScopeStruct((string) new UUIDv4()),
       new SubjectForCustomer()
     );
     $request = new GETRequest(new ResourceURL($this->environment->connection(), 'v2/products'));

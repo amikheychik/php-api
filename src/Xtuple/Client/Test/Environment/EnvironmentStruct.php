@@ -29,7 +29,6 @@ final class EnvironmentStruct
       new MemoryCache('oauth'),
       new SubjectForCustomer(),
       new ScopeStruct(
-        $environment->xtuple()->database(),
         md5((string) random_int(0, PHP_INT_MAX))
       )
     );

@@ -14,13 +14,13 @@ class KeyForConnectionTest
     $key = new KeyForConnection(
       new ConnectionStruct('phpunit', 'https://example.com/', 'erp', new IssuerStruct('issuer'), '/tmp/test.p12'),
       new SubjectForCustomer(),
-      new ScopeStruct('erp', 'session')
+      new ScopeStruct('session')
     );
     self::assertEquals([
       'https://example.com/erp/oauth/v2/token',
       sha1('issuer'),
       'admin',
-      sha1('erp.session.externalId:session erp.session.customer:GUEST'),
+      sha1('externalId:session customer:GUEST'),
     ], $key->fields());
   }
 }

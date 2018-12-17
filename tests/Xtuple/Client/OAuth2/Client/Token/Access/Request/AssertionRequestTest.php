@@ -31,7 +31,7 @@ class AssertionRequestTest
       ),
       new JWTForConnection(
         new PHPUnitConnection($this->p12),
-        new ScopeStruct('erp', 'phpunit'),
+        new ScopeStruct('phpunit'),
         new SubjectForCustomer(),
         new TimestampNow()
       )

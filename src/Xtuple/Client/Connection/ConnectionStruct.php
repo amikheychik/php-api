@@ -21,7 +21,7 @@ final class ConnectionStruct
   /** @var bool */
   private $debug;
 
-  public function __construct(string $application, string $host, string $database, Issuer $iss, string $key,
+  public function  __construct(string $application, string $host, string $database, Issuer $iss, string $key,
                               bool $debug = false) {
     $this->application = $application;
     $this->host = $host;
