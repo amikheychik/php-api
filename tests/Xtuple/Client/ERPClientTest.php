@@ -2,6 +2,7 @@
 
 namespace Xtuple\Client;
 
+use Xtuple\Client\Connection\ConnectionStruct;
 use Xtuple\Client\JWT\Claim\Claim\Registered\Subject\SubjectForCustomer;
 use Xtuple\Client\OAuth2\Client\Token\Scope\ScopeStruct;
 use Xtuple\Client\Request\Collection\Map\ArrayMapRequest;
@@ -9,6 +10,7 @@ use Xtuple\Client\Request\Request\GETRequest;
 use Xtuple\Client\Request\URL\ResourceURL;
 use Xtuple\Client\Test\ERPClientTestCase;
 use Xtuple\Util\Cache\Cache\Memory\MemoryCache;
+use Xtuple\Util\JWT\Claim\Claim\Registered\Issuer\IssuerStruct;
 
 class ERPClientTest
   extends ERPClientTestCase {
@@ -56,7 +58,7 @@ class ERPClientTest
    */
   public function testSendManyException() {
     $client = new ERPClient(
-      $this->environment->connection(),
+      new ConnectionStruct('fail', 'http://localhost', 'missing', new IssuerStruct('issuer'), '/path/to/key'),
       new MemoryCache('tokens'),
       new SubjectForCustomer('GUEST'),
       new ScopeStruct('erp', 'session')
