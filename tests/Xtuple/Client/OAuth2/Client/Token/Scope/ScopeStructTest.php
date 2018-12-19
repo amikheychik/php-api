@@ -20,7 +20,8 @@ class ScopeStructTest
       '05098435b82fa53ab8dc5a713ca1f43a93c7685c',
       'CUSTOMER@XTUPLE.COM',
       '2f8176d1-3264-404e-828d-0a5ba5dd02b5',
-      'WAREHOUSE'
+      'WAREHOUSE',
+      'ADMIN'
     );
     self::assertEquals(
       implode(' ', [
@@ -28,6 +29,7 @@ class ScopeStructTest
         'customer:CUSTOMER@XTUPLE.COM',
         'shipTo:2f8176d1-3264-404e-828d-0a5ba5dd02b5',
         'site:WAREHOUSE',
+        'employee:ADMIN',
       ]),
       $scope->value()
     );

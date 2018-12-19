@@ -11,8 +11,9 @@ final class ScopeStruct
   /** @var string */
   private $site;
 
-  public function __construct(string $externalId, string $customer = 'GUEST', string $shipTo = '', string $site = '') {
-    $scope = array_filter(compact('externalId', 'customer', 'shipTo', 'site'));
+  public function __construct(string $externalId, string $customer = 'GUEST', string $shipTo = '', string $site = '',
+                              string $employee = '') {
+    $scope = array_filter(compact('externalId', 'customer', 'shipTo', 'site', 'employee'));
     foreach ($scope as $key => $value) {
       $scope[$key] = "{$key}:{$value}";
     }
